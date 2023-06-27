@@ -1,4 +1,5 @@
 <script>
+import { store } from '../store.js'
 export default {
 
 }
@@ -13,7 +14,10 @@ export default {
         </div>
         <div class="col-3">
           <div class="input-group input-group-sm">
-            <input type="text" class="form-control" placeholder="Search Movie" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input type="text" class="form-control" placeholder="Cosa vuoi vedere oggi?" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <button class="btn-danger btn" type="button">
+              Cerca
+            </button>
           </div>
         </div>
       </div>
