@@ -8,11 +8,16 @@ export default {
         }
     },
 
-    mounted() {
-        axios.get(store.movieApi).then((result) => {
-            store.myMovie = result.data.results;
-        })
+    methods: {
+        getFilm() {
+            let myMovies = store.movieApi;
+
+            if (store.searchMovie !== '') {
+                myMovies += `?name=${store.searchMovie}`
+            }
+        }
     },
+
 }
 </script>
 
