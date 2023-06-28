@@ -1,20 +1,13 @@
 <script>
 import { store } from '../store'
-import axios from 'axios'
+import AppCard from './AppCard.vue'
 export default {
+    components: {
+        AppCard,
+    },
     data() {
         return {
             store
-        }
-    },
-
-    methods: {
-        getFilm() {
-            let myMovies = store.movieApi;
-
-            if (store.searchMovie !== '') {
-                myMovies += `?name=${store.searchMovie}`
-            }
         }
     },
 
@@ -23,9 +16,7 @@ export default {
 
 <template lang="">
     <main>
-        <div v-for="(film, index) in store.filmList" :key="index">
-            <p class="text-light">{{ film.original_title}}</p>
-        </div> 
+        <AppCard v-for="(film, index) in store.filmList" :key="index" :searched_film="film"/> 
     </main>
 </template>
 <style lang="">

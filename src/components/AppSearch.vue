@@ -1,13 +1,9 @@
 <script>
+import { store } from '../store';
 export default {
     data() {
         return {
-            searchText: ''
-        }
-    },
-    methods: {
-        sendSearch() {
-            console.log(this.searchText);
+            store
         }
     },
 }
@@ -16,8 +12,8 @@ export default {
 <template lang="">
     <div class="col-3">
         <div class="input-group input-group-sm">
-            <input v-model="searchText" type="text" class="form-control" placeholder="Cosa vuoi vedere oggi?" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" @keyup.enter="$emit('search')">
-            <button class="btn-danger btn" type="button" @click="$emit('search')">
+            <input  v-model="store.search_title_words" type="text" class="form-control" placeholder="Cosa vuoi vedere oggi?" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" @keyup.enter="$emit('clickSearch')">
+            <button class="btn-danger btn" type="button" @click="$emit('clickSearch')">
               Cerca
             </button>
         </div>

@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store.js'
 import AppSearch from './AppSearch.vue';
+import axios from 'axios';
 export default {
   components: {
     AppSearch,
@@ -11,10 +12,17 @@ export default {
     }
   },
   methods: {
-    filterFilms() {
-      console.log('emit funzionante')
+    searchFilm() {
+      let apiUrl = store.baseUrl + store.apiMovie + store.apiKey + store.Query;
+      if (store.search_title_words !== '') {
+        apiUrl += store.search_title_words;
+        axios.get(apiUrl).then((result) => {
+          store.filmList = result.data.results;
+
+        });
+      }
     }
-  },
+  }
 
 }
 </script>
@@ -26,7 +34,7 @@ export default {
         <div class="col-3">
           <img src="../assets/img/logo-boolflix@4x.png" alt="" class="w-75">
         </div>
-        <AppSearch @search="filterFilms"/>
+        <AppSearch  @clickSearch="searchFilm()"/>
       </div>
     </div>
   </header>

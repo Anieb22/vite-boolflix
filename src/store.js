@@ -1,6 +1,16 @@
-import { reactive } from 'vue'
+import { reactive } from 'vue';
 
 export const store = reactive({
-    movieApi: 'https://api.themoviedb.org/3/search/movie?api_key=aa96e5802311da937f2a7065ffd89de9&query=',
-    searchMovie: '',
+
+    baseUrl: 'https://api.themoviedb.org',
+    apiKey: '?api_key=aa96e5802311da937f2a7065ffd89de9',
+
+    apiMovie: '/3/search/movie',
+
+    Query: '&query=',
+
+    search_title_words: "",
+
+    filmList: [],
+
 })
