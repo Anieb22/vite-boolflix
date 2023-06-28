@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default {
     props: {
-        searched_film: Object,
+        searchedFilm: Object,
     },
     data() {
         return {
@@ -21,15 +21,20 @@ export default {
 
 <template>
     <div>
+        <img :src="store.baseUrlImage + searchedFilm.poster_path" />
+        <li> Titolo: {{ searchedFilm.title || searchedFilm.name }} </li>
         <ul>
-            <li> Titolo: {{ searched_film.title }}</li>
-
+            <li>Titolo originale: {{ searchedFilm.original_title || searchedFilm.original_name }}</li>
+            <li>Lingua: <img :src="'/flag/' + searchedFilm.original_language + '_16.png'" /> </li>
+            <li>Voto: {{ searchedFilm.vote_average }}</li>
+            <li>film o serie: {{ searchedFilm.media_type }} </li>
         </ul>
     </div>
 </template>
 
 <style lang="scss" scoped>
-ul li {
+ul,
+li {
     color: white;
 }
 </style>
