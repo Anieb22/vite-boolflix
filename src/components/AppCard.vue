@@ -20,7 +20,7 @@ export default {
             <img :src="searchedFilm.poster_path === null || searchedFilm.poster_path === undefined  ? 'src/assets/img/avatar-11a1a68c331386a31a9f76c7936267a5.jpg' : store.baseUrlImage + searchedFilm.poster_path" >
             
             <ul class="info p-4" > 
-                <li id='movie-title' >
+                <li id='title' >
                     <h4>{{ searchedFilm.title || searchedFilm.name }}</h4> 
                 </li>
                 <li>
@@ -42,7 +42,7 @@ export default {
                     <h6> Rating: </h6>
                     {{searchedFilm.vote_average}}
                 </li>
-                <li id="movie-overview">
+                <li id="overview">
 
                     <div class="text-center mt-4 fw-bolder"> Descrizione </div> 
                     {{ searchedFilm.overview }}
@@ -56,7 +56,6 @@ export default {
 <style lang="scss" scoped>
 .card {
     .poster {
-        aspect-ratio: 2/3;
         width: 342px
     }
 
@@ -72,15 +71,14 @@ export default {
         background-color: rgba(0, 0, 0, 0.835);
         overflow: auto;
         color: white;
-        font-family: 'Roboto', sans-serif;
 
-        #movie-title {
+        #title {
             text-transform: uppercase;
             text-align: center;
             margin-bottom: 20px
         }
 
-        #movie-overview {
+        #overview {
             text-align: justify;
             margin-bottom: 40px;
         }
