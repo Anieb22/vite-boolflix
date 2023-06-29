@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template lang="">
-    <main>
+    <main class="d-flex flex-row flex-wrap">
         <AppCard v-for="(film, index) in store.filmList" :key="index" :searchedFilm="film"/> 
     </main>
 </template>
